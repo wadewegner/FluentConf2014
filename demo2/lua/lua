@@ -1,0 +1,32 @@
+local data = {
+    client_id = "",
+    client_secret = "",
+    grant_type = "password",
+    username = "",
+    password = ""
+}
+ 
+local response = http.request {
+    method = "POST",
+    headers= {["Content-Type"]="application/x-www-form-urlencoded"},
+    url = 'https://login.salesforce.com/services/oauth2/token',
+    data = data
+}
+ 
+local tokenResponse = json.parse(response.content)
+
+access_token = json.parse(response.content)["access_token"]
+instance_url = json.parse(response.content)["instance_url"]
+
+query = "SELECT%20id,%20name%20FROM%20Widget__c"
+
+local response = http.request {
+		method = "GET",
+		headers= {["Content-Type"]="application/json",["Authorization"]="Bearer "..access_token},
+		url = instance_url.. "/services/data/v29.0/query?q="..query,
+		data = data
+}
+
+local tokenResponse = json.parse(response.content)
+
+return tokenResponse
