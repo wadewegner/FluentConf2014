@@ -15,14 +15,14 @@ local response = http.request {
  
 local tokenResponse = json.parse(response.content)
 
-access_token = json.parse(response.content)["access_token"]
-instance_url = json.parse(response.content)["instance_url"]
+local access_token = json.parse(response.content).access_token
+local instance_url = json.parse(response.content).instance_url
 
-query = "SELECT%20id,%20name%20FROM%20Widget__c"
+local query = "SELECT%20id,%20name%20FROM%20Widget__c"
 
 local response = http.request {
 		method = "GET",
-		headers= {["Content-Type"]="application/json",["Authorization"]="Bearer "..access_token},
+		headers= {["Content-Type"]="application/json", Authorization="Bearer "..access_token},
 		url = instance_url.. "/services/data/v29.0/query?q="..query,
 		data = data
 }
