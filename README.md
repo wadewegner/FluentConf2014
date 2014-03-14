@@ -4,7 +4,7 @@ You'll find all the source code demonstrated in my talk on Salesforce1 Platform 
 
 #### Presentation
 
-[https://github.com/wadewegner/FluentConf2014/blob/master/FluentConf.pptx](https://github.com/wadewegner/FluentConf2014/blob/master/FluentConf.pptx)
+[https://github.com/wadewegner/FluentConf2014/blob/master/FluentConf.pdf](https://github.com/wadewegner/FluentConf2014/blob/master/FluentConf.pdf)
 
 #### Apex Rest Resource Controller
 
